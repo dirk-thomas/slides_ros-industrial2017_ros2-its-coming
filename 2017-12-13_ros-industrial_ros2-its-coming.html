@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>ROS 2 - it's coming</title>
+
+    <meta name="description" content="Description of ROS 2 at the ROS-Industrial Conference 2017">
+    <meta name="author" content="Dirk Thomas">
+
+    <link rel="stylesheet" href="css/bootstrap-3.3.7.css">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+
+    <link rel="stylesheet" href="css/osrf.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <div class="osrf-signature">
+          <svg id="osrf-logo" height="1.8em" width="1.8em" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <image id="osrf-logo-image" x="0" y="0" height="100%" width="100%" xlink:href="image/osrf-logo.svg"/>
+            <animateTransform id="osrf-logo-clockwise" xlink:href="#osrf-logo-image" attributeName="transform" attributeType="XML"
+              type="rotate" from="0 27 27" to="360 27 27" dur="0.7s" calcMode="spline" keySplines="0.5 0 0.5 1" keyTimes="0;1" begin="indefinite" repeatCount="0" fill="freeze"/>
+            <animateTransform id="osrf-logo-counterclockwise" xlink:href="#osrf-logo-image" attributeName="transform" attributeType="XML"
+              type="rotate" from="360 27 27" to="0 27 27" dur="0.7s" calcMode="spline" keySplines="0.5 0 0.5 1" keyTimes="0;1" begin="indefinite" repeatCount="0" fill="freeze"/>
+            <animate id="osrf-logo-flash" attributeType="CSS" attributeName="opacity"
+              dur="0.7s" values="1; 0.25; 1" keyTimes="0; 0.25; 1" repeatCount="0" />
+          </svg>
+          <svg id="osrf-lettering" height="1.6em" width="32%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <image x="-95" y="-5" height="100%" width="100%" xlink:href="image/openrobotics-lettering.svg"/>
+          </svg>
+        </div>
+
+        <section>
+          <h1>ROS 2</h1>
+          <h3>it's coming</h3>
+          <p>
+            <small>
+              Dec. 13th 2017<br/>
+              Dirk Thomas<br/>
+              ROS-Industrial Conference 2017, Stuttgart, Germany
+            </small>
+          </p>
+        </section>
+
+        <section>
+          <h2 style="text-align: left;">Questions...</h2>
+          <img src="image/qrcode_2017-12-13_ros-industrial_ros2-its-coming.svg" width="20%" style="text-align: left;" alt=""/>
+          <br/>
+          <p style="text-align: right;">
+            For more information go to:<br/>
+            <a href="http://www.ros2.org/">ros2.org</a>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+
+      var slide_index_h = 0;
+      var slide_index_v = 0;
+      var data_flow_duration = undefined;
+
+      Reveal.addEventListener( 'slidechanged', function(event) {
+        console.log('slidechanged', event.indexh, event.indexv);
+        slide_index_h = event.indexh;
+        slide_index_v = event.indexv;
+        if (slide_index_h == 1 && slide_index_v == 2) {
+          // moving outdoor slide
+          data_flow_duration = 1;
+        }
+      });
+      Reveal.addEventListener('fragmentshown', function(event) {
+        console.log('fragmentshown');
+        if (slide_index_h == 1 && slide_index_v == 2) {
+          // moving outdoor slide
+          data_flow_duration++;
+          svg = document.getElementById('moving-outdoor-data-flow');
+          lines = svg.getElementsByTagName('polyline');
+          for (var i = 0; i < lines.length; i++) {
+            lines[i].style.animationDuration = data_flow_duration + 's';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
