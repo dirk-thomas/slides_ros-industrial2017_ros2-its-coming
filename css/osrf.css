@@ -1,0 +1,142 @@
+.reveal {
+  color: #353535;
+  font-size: 30px; }
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  color: #44497a;
+  text-transform: inherit; }
+
+.reveal small {
+  color: #7a7c7e;
+  font-size: 0.8em; }
+
+.reveal a.glyphicon {
+  color: #353535; }
+.reveal a.glyphicon:hover {
+  color: #2a76dd; }
+
+.osrf-signature {
+  bottom: -0.3em;
+  left: 0;
+  position: absolute;
+  height: 1.8em;
+  width: 100%; }
+.reveal .slides .osrf-signature {
+  text-align: left; }
+
+.progress {
+  margin-bottom: 0; }
+
+.reveal section img {
+  border: 0;
+  box-shadow: none; }
+.reveal dl.center-block,
+.reveal section img.center-block {
+  margin-left: auto;
+  margin-right: auto; }
+
+.reveal dl.dl-horizontal {
+  display: block; }
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+ .reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
+  border-right-color: #44497a; }
+
+.reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
+  border-left-color: #44497a; }
+
+.reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #44497a; }
+
+.reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
+  border-top-color: #44497a; }
+
+.reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: #7780D6; }
+
+.reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: #7780D6; }
+
+.reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: #7780D6; }
+
+.reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: #7780D6; }
+
+section[data-markdown] > p {
+  text-align: left;
+}
+
+section[data-markdown] > ul {
+  display: block;  /*This is needed to have them float left rather then expand from the middle.*/
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress span {
+  background: #44497a; }
+
+/*********************************************
+ * SLIDE NUMBER
+ *********************************************/
+.reveal .slide-number {
+  bottom: 20px;
+  color: #44497a;
+  font-size: .8em; }
+
+/*********************************************
+ * SECTION SIZE
+ *********************************************/
+.fixed_size {
+  height: 550px;
+  width: 100%;
+}
+.fixed_size img {
+  position: absolute;
+}
+
+/*********************************************
+ * SVG
+ *********************************************/
+svg ellipse, svg g path, svg polyline, svg rect {
+  fill: none; }
+svg ellipse, svg line, svg g path, svg polyline, svg rect {
+  stroke: #353535;
+  stroke-width: 3; }
+svg text {
+  fill: #44497a;
+  stroke: #44497a; }
+
+.reveal pre code.hljs {
+  background-color: #f0f0f0;
+  color: #353535;
+  max-height: 500px; }
+.reveal pre code.hljs mark {
+  background-color: inherit;
+  font-weight: bold;
+  text-decoration: underline; }
+
+.data-flow {
+  animation: dataflow 1s linear infinite;
+}
+.slower1 .data-flow {
+  animation: dataflow 2s linear infinite;
+}
+.slower2 .data-flow {
+  animation: dataflow 3s linear infinite;
+}
+.slower3 .data-flow {
+  animation: dataflow 4s linear infinite;
+}
+
+@keyframes dataflow {
+  from{
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
