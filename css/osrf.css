@@ -122,15 +122,6 @@ svg text {
 .data-flow {
   animation: dataflow 1s linear infinite;
 }
-.slower1 .data-flow {
-  animation: dataflow 2s linear infinite;
-}
-.slower2 .data-flow {
-  animation: dataflow 3s linear infinite;
-}
-.slower3 .data-flow {
-  animation: dataflow 4s linear infinite;
-}
 
 @keyframes dataflow {
   from{
